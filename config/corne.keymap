@@ -1,12 +1,12 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/ext_power.h> // Still included if other ext_power features exist or for future use
 #include <dt-bindings/zmk/outputs.h>
 
 
 // Layer Definitions
-define QWERTY 0
+#define QWERTY 0
 #define NUM 1
 #define SYM 2
 #define FN 3
@@ -37,32 +37,30 @@ define QWERTY 0
 
 / {
 
-gqt: global-quick-tap {
-    compatible = "zmk,behavior-hold-tap";
-    label = "GLOBAL_QUICK_TAP";
-    #binding-cells = <2>;
-    flavor = "tap-preferred";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <125>;
-    global-quick-tap;
-    bindings = <&kp>, <&kp>;
-};
+    gqt: global-quick-tap {
+        compatible = "zmk,behavior-hold-tap";
+        label = "GLOBAL_QUICK_TAP";
+        #binding-cells = <2>;
+        flavor = "tap-preferred";
+        tapping-term-ms = <200>;
+        quick-tap-ms = <125>;
+        global-quick-tap;
+        bindings = <&kp>, <&kp>;
+    };
 
-behaviors {
+    behaviors {
         bhm: balanced_homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
             tapping-term-ms = <200>;    // <---[[moderate duration]]
-            quick-tap-ms = <0>;
+            quick-tap-ms = <0>;         // Standard for balanced, adjust if needed
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
     };
 
     macros {
-
-       
         screen_sht: screen_sht {
             label = "screen_sht";
             compatible = "zmk,behavior-macro";
@@ -73,8 +71,8 @@ behaviors {
                 , <&macro_release &kp LSHFT &kp LGUI>
                 ;
         };
-       
-    move_win: move_win {
+
+        move_win: move_win {
             label = "move_win";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -85,8 +83,6 @@ behaviors {
                 , <&macro_tap &kp M>
                 ;
         };
-
-       
 
         next_desktop: next_desktop {
             label = "next_desktop";
@@ -141,7 +137,7 @@ behaviors {
                 , <&macro_tap &kp RET>
                 ;
         };
- alt_f4: alt_f4 {
+        alt_f4: alt_f4 {
             label = "alt_f4";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -177,7 +173,7 @@ behaviors {
                 ;
         };
 
-ft_a4: ft_a4 {
+        ft_a4: ft_a4 {
             label = "ft_a4";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -240,8 +236,8 @@ ft_a4: ft_a4 {
             label = "print_wq";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings 
-                = <&macro_tap &kp RET>                
+            bindings
+                = <&macro_tap &kp RET>
                 , <&macro_tap &kp TAB &kp RIGHT &kp RET &kp LBKT &kp DOWN>;
         };
         //WAREHOUSE FURNITURE - FACT PRINT DIALOG
@@ -250,7 +246,7 @@ ft_a4: ft_a4 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &kp RET>                
+                = <&macro_tap &kp RET>
                 , <&macro_tap &kp TAB &kp RIGHT &kp RET &kp LBKT>;
         };
         //SHOP QATTAN - FACT PRINT DIALOG
@@ -259,7 +255,7 @@ ft_a4: ft_a4 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &kp RET>                 
+                = <&macro_tap &kp RET>
                 , <&macro_tap &kp TAB &kp RIGHT &kp RET &kp KP_N0>;
         };
         //SHOP FURNITURE - FACT PRINT DIALOG
@@ -277,9 +273,7 @@ ft_a4: ft_a4 {
                 , <&macro_tap &kp TAB &kp RIGHT &kp RET &kp BSLH>;
         };
     };
-};
-
-// Keymap configuration (Colemak-DHm)
+// Keymap configuration
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -287,31 +281,30 @@ ft_a4: ft_a4 {
         qwerty {
 // -----------------------------------------------------------------------------------------------------------------------------
 // |        |   Q    |   W    |     E     |     R     |     T     | # |     Y     |     U    |    I    |    O   |   P    |     |
-// | LAYERS | A/LGUI | S/LALT |  D/LCTRL  |  F/LSHFT  |     G     | # |     H     | J/LSHFT  | K/LCTRR | L/LALT | ;/LGUI |     |
+// | LAYERS | A/LGUI | S/LALT |  D/LCTRL  |  F/LSHFT  |     G     | # |     H     | J/LSHFT  | K/LCTRL| L/LALT | ;/LGUI |     |
 // |        |   Z    | X/RALT |     C     |     V     |     B     | # |     N     |     M    |    ,    | ./RALT |   /    |     |
 //                            | ESC/MEDIA | SPACE/NAV | TAB/MOUSE | # | ENTER/SYM | BSPC/NUM | DEL/FN  |
 
             bindings = <
-&trans      &mt SPACE Q       &kp W       &kp E          &kp R          &lt LAYERS T         &kp Y          &kp U           &kp I          &kp O         &kp P          &trans
-&mo LAYERS  &mt LGUI A  &mt LALT S  &mt LCTRL D    &mt LSHFT F    &kp G                &kp H          &mt LSHFT J     &mt LCTRL K    &mt LALT L    &mt LGUI SEMI  &trans
-&trans      &kp Z       &mt RALT X  &kp C          &kp V          &kp B                &kp N          &lt MACRO M     &kp COMMA       &mt RALT DOT  &kp FSLH       &trans
-                                    &lt MEDIA ESC  &lt NAV SPACE  &lt MOUSE TAB        &lt SYM ENTER  &lt NUM BSPC    &lt FN DEL
+&trans      &kp Q            &kp W            &kp E             &kp R             &lt LAYERS T         &kp Y             &kp U              &kp I             &kp O            &kp P             &trans
+&mo LAYERS  &bhm LGUI A      &bhm LALT S      &bhm LCTRL D      &bhm LSHFT F      &kp G                &kp H             &bhm LSHFT J       &bhm LCTRL K      &bhm LALT L      &bhm LGUI SEMI    &trans
+&trans      &kp Z            &mt RALT X       &kp C             &kp V             &kp B                &kp N             &lt MACRO M        &kp COMMA          &mt RALT DOT     &kp FSLH          &trans
+                                             &lt MEDIA ESC     &lt NAV SPACE     &lt MOUSE TAB        &lt SYM ENTER     &lt NUM BSPC       &lt FN DEL
             >;
         };
 
          colemak {
 // -----------------------------------------------------------------------------------------------------------------------------
 // |        |   Q    |   W    |     F     |     P     |     B     | # |     J     |    L     |    U    |    Y   |   '    |     |
-// | LAYERS | A/LGUI | R/LALT |  S/LCTRL  |  T/LSHFT  |     G     | # |     M     | N/LSHFT  | E/LCTRL | I/LALT | O/LGUI |     |
+// | LAYERS | A/LGUI | R/LALT |  S/LCTRL  |  T/LSHFT  |     G     | # |     M     | N/LSHFT  | E/LCTRL| I/LALT | O/LGUI |     |
 // |        |   Z    | X/RALT |     C     |     D     |     V     | # |     K     |    H     |    ,    | ./RALT |   /    |     |
 //                            | ESC/MEDIA | SPACE/NAV | TAB/MOUSE | # | ENTER/SYM | BSPC/NUM | DEL/FN  |
 
-
             bindings = <
-&trans      &kp Q       &kp W       &kp F          &kp P          &lt LAYERS B         &kp J          &kp L         &kp U          &kp Y         &kp SQT     &trans
-&mo LAYERS  &mt LGUI A  &mt LALT R  &mt LCTRL S    &mt LSHFT T    &kp G                &kp M          &mt LSHFT N   &mt LCTRL E    &mt LALT I    &mt LGUI O  &trans
-&trans      &kp Z       &mt RALT X  &kp C          &kp D          &kp V                &kp K          &kp H         &kp COMMA       &mt RALT DOT  &kp FSLH    &trans
-                                    &lt MEDIA ESC  &lt NAV SPACE  &lt MOUSE TAB        &lt SYM ENTER  &lt NUM BSPC  &lt FN DEL
+&trans      &kp Q            &kp W            &kp F             &kp P             &lt LAYERS B         &kp J             &kp L              &kp U             &kp Y            &kp SQT           &trans
+&mo LAYERS  &bhm LGUI A      &bhm LALT R      &bhm LCTRL S      &bhm LSHFT T      &kp G                &kp M             &bhm LSHFT N       &bhm LCTRL E      &bhm LALT I      &bhm LGUI O       &trans
+&trans      &kp Z            &mt RALT X       &kp C             &kp D             &kp V                &kp K             &kp H              &kp COMMA          &mt RALT DOT     &kp FSLH          &trans
+                                             &lt MEDIA ESC     &lt NAV SPACE     &lt MOUSE TAB        &lt SYM ENTER     &lt NUM BSPC       &lt FN DEL
             >;
         };
 
@@ -396,16 +389,16 @@ ft_a4: ft_a4 {
 
         media {
 // -----------------------------------------------------------------------------------------------------
-// |     |      |      |       |       |      | # | BOOTLOAD | EP_OFF | BR_D   | BR_U   | EP_ON  |     |
+// |     |      |      |       |       |      | # | BOOTLOAD | EP_OFF | BR_D   | BR_U   | EP_ON  |     | // EP_OFF/ON changed to &trans
 // |     | LGUI | LALT | LCTRL | LSHFT |      | # | RESET    | PREV   | VOL_D  | VOL_U  | NEXT   |     |
 // |     |      | RALT |       |       |      | # | OUT_BLE  | BT_0   | BT_PRV | BT_NXT | BT_CLR_ALL |     |
 //                     | HELD  |       |      | # | STOP     | PLAY   | MUTE   |
 
             bindings = <
-&trans  &trans        &trans        &trans           &trans           &trans             &trans        &ext_power EP_OFF  &kp C_BRI_DN  &kp C_BRI_UP  &ext_power EP_ON  &trans
-&trans  &kp LGUI      &kp LALT      &kp LCTRL        &kp LSHFT        &trans             &out OUT_USB  &kp C_PREV         &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT        &trans
-&trans  &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2     &trans             &out OUT_BLE  &bt BT_SEL 0       &bt BT_PRV    &bt BT_NXT    &bt BT_CLR_ALL    &trans
-                                    &trans           &kp SPACE        &trans             &kp C_STOP    &kp C_PLAY         &kp C_MUTE
+&trans  &trans        &trans        &trans           &trans           &trans             &trans        &trans        &kp C_BRI_DN  &kp C_BRI_UP  &trans        &trans // Changed EP_OFF and EP_ON to &trans
+&trans  &kp LGUI      &kp LALT      &kp LCTRL        &kp LSHFT        &trans             &out OUT_USB  &kp C_PREV    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT    &trans
+&trans  &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2     &trans             &out OUT_BLE  &bt BT_SEL 0  &bt BT_PRV    &bt BT_NXT    &bt BT_CLR_ALL&trans
+                                    &trans           &kp SPACE        &trans             &kp C_STOP    &kp C_PLAY    &kp C_MUTE
             >;
         };
 
@@ -426,7 +419,7 @@ ft_a4: ft_a4 {
 
         symbols {
 // ------------------------------------------------------------------------------------
-// |     |  {  |  &  |  *  |  (  |  }  | # |      |       |       |      |      |     |
+// |     |  {  |  &  |  * |  (  |  }  | # |      |       |       |      |      |     |
 // |     |  :  |  $  |  %  |  ^  |  +  | # |      | LSHFT | LCTRL | LALT | LGUI |     |
 // |     |  ~  |  !  |  @  |  #  |  |  | # |      |       |       | RALT |      |     |
 //                   |  (  |  )  |  _  | # | HELD |       |       |
@@ -462,11 +455,11 @@ ft_a4: ft_a4 {
 //                       |           |       |      | # |     |      |          |
 
                         bindings = <
-    &trans  &print_wq  &print_wf  &trans          &trans           &trans           &trans  &trans  &trans    &trans    &ft_print  &trans 
-    &trans  &print_sq  &print_sf  &trans          &trans           &trans           &trans  &trans  &trans    &trans    &trans     &trans 
-    &trans  &trans     &trans     &alt_f4   &ctrl_f4           &trans           &trans  &trans  &ft_proc  &ft_edit  &trans     &trans 
-                                  &onenote_paste  &ft_a4  &screen_sht      &trans  &trans  &trans                                
-                                        	        
+    &trans  &print_wq  &print_wf  &trans          &trans           &trans           &trans  &trans  &trans    &trans    &ft_print  &trans
+    &trans  &print_sq  &print_sf  &trans          &trans           &trans           &trans  &trans  &trans    &trans    &trans     &trans
+    &trans  &trans     &trans     &alt_f4   &ctrl_f4           &trans           &trans  &trans  &ft_proc  &ft_edit  &trans     &trans
+                                  &onenote_paste  &ft_a4  &screen_sht      &trans  &trans  &trans
+
                         >;
                 };
     };
