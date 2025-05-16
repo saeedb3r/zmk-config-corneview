@@ -6,18 +6,18 @@
 
 
 // Layer Definitions
-#define QWERTY 0
-#define COLEMAK 1
-#define GAMING_COLEMAK 2
-#define GAMING_QWERTY 3
-#define LAYERS 4
-#define NAV 5
-#define MOUSE 6
-#define MEDIA 7
-#define NUM 8
-#define SYM 9
-#define FN 10
-#define MACRO 11
+define QWERTY 0
+#define NUM 1
+#define SYM 2
+#define FN 3
+#define NAV 4
+#define MACRO 5
+#define MEDIA 6
+#define LAYERS 7
+#define GAMING_QWERTY 8
+#define COLEMAK 9
+#define GAMING_COLEMAK 10
+#define MOUSE 11
 
 // Behavior configuration
 &mt {
