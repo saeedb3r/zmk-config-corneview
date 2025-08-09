@@ -8,8 +8,8 @@
 // Layer Definitions
 #define QWERTY 0
 #define COLEMAK 1
-#define GAMING_COLEMAK 2
-#define GAMING_QWERTY 3
+#define GAMING_QWERTY 2
+#define GAMING_COLEMAK 3
 #define LAYERS 4
 #define NAV 5
 #define MOUSE 6
@@ -323,8 +323,8 @@ ft_a4: ft_a4 {
 //                          |  ESC  | SPACE |  TAB  | # | ENTER | BSPC  |  DEL  |
 
             bindings = <
-&trans      &kp Q  &kp W   &kp E     &kp R      &lt LAYERS T   &none      &none       &kp UP     &none       &none   &trans
-&mo LAYERS  &kp A  &kp S   &kp D     &kp F      &kp G          &none      &kp LEFT    &kp DOWN   &kp RIGHT   &none   &trans
+&trans      &kp Q  &kp W   &kp E     &kp R      &lt LAYERS T   &kp F8     &none       &kp UP     &none       &none   &trans
+&mo LAYERS  &kp A  &kp S   &kp D     &kp F      &kp G          &kp F5     &kp LEFT    &kp DOWN   &kp RIGHT   &none   &trans
 &trans      &kp N1 &kp N2  &kp N3    &kp N4     &kp B          &none      &kp N1      &kp N2     &kp N3      &kp N4  &trans
                            &kp ESC   &kp SPACE  &kp TAB        &kp ENTER  &kp BSPC  &kp DEL
             >;
@@ -348,14 +348,14 @@ ft_a4: ft_a4 {
         layers {
 // ---------------------------------------------------------------------------------------------
 // | bootloader | bootloader |     |     |     | HELD | # |     |     |         |                | bootloader | bootloader |
-// |    HELD    |            |     |     |     |      | # |     |     | COLEMAK | GAMING_COLEMAK |            |            |
-// |            |            |     |     |     |      | # |     |     | QWERTY  | GAMING_QWERTY  |            |            |
+// |    HELD    |            |     |     |     |      | # |     |     | QWERTY  | GAMING_QWERTY  |            |            |
+// |            |            |     |     |     |      | # |     |     | COLEMAK | GAMING_COLEMAK |            |            |
 //                                 |     |     |      | # |     |     |         |
 
             bindings = <
 &bootloader  &bootloader  &trans  &trans  &trans  &trans          &trans  &trans  &trans       &trans              &bootloader  &bootloader
-&sys_reset   &sys_reset   &trans  &trans  &trans  &trans          &trans  &trans  &to COLEMAK  &to GAMING_COLEMAK  &sys_reset   &sys_reset
-&trans       &trans       &trans  &trans  &trans  &trans          &trans  &trans  &to QWERTY   &to GAMING_QWERTY   &trans       &trans
+&sys_reset   &sys_reset   &trans  &trans  &trans  &trans          &trans  &trans  &to QWERTY  &to GAMING_QWERTY  &sys_reset   &sys_reset
+&trans       &trans       &trans  &trans  &trans  &trans          &trans  &trans  &to COLEMAK   &to GAMING_COLEMAK   &trans       &trans
                                   &trans  &trans  &trans          &trans  &trans  &trans
             >;
         };
