@@ -39,7 +39,6 @@
 
 gqt: global-quick-tap {
     compatible = "zmk,behavior-hold-tap";
-    label = "GLOBAL_QUICK_TAP";
     #binding-cells = <2>;
     flavor = "tap-preferred";
     tapping-term-ms = <200>;
@@ -51,7 +50,6 @@ gqt: global-quick-tap {
 behaviors {
         bhm: balanced_homerow_mods {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
             #binding-cells = <2>;
             tapping-term-ms = <200>;    // <---[[moderate duration]]
             quick-tap-ms = <0>;
@@ -64,7 +62,6 @@ behaviors {
 
        
         screen_sht: screen_sht {
-            label = "screen_sht";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -75,7 +72,6 @@ behaviors {
         };
        
     move_win: move_win {
-            label = "move_win";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -89,7 +85,6 @@ behaviors {
        
 
         next_desktop: next_desktop {
-            label = "next_desktop";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -99,7 +94,6 @@ behaviors {
                 ;
         };
         prev_desktop: prev_desktop {
-            label = "prev_desktop";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -109,7 +103,6 @@ behaviors {
                 ;
         };
         CTRL_ALT_DEL: CTRL_ALT_DEL {
-            label = "CTRL_ALT_DEL";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -121,7 +114,6 @@ behaviors {
 
         // microsoft onenote past
         onenote_paste: onenote_paste {
-            label = "onenote_paste";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -142,7 +134,6 @@ behaviors {
                 ;
         };
  alt_f4: alt_f4 {
-            label = "alt_f4";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -151,7 +142,6 @@ behaviors {
                 , <&macro_release &kp LALT>;
         };
         ctrl_f4: ctrl_f4 {
-            label = "ctrl_f4";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -162,7 +152,6 @@ behaviors {
 
         //fact application macro
          ft_a4_scrn_sht: ft_a4_scrn_sht {
-            label = "ft_a4_scrn_sht";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -178,7 +167,6 @@ behaviors {
         };
 
 ft_a4: ft_a4 {
-            label = "ft_a4";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -190,7 +178,6 @@ ft_a4: ft_a4 {
         };
 
         ft_proc: ft_proc {
-            label = "ft_proc";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -201,13 +188,11 @@ ft_a4: ft_a4 {
                 ;
         };
         ft_edit: ft_edit_doc {
-            label = "ft_edit_doc";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings= <&macro_tap &kp F6 &kp RET>;
         };
         ft_tri_close: tri_close {
-            label = "ft_tri_close";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -227,7 +212,6 @@ ft_a4: ft_a4 {
         };
         //FACT PRINT DIALOG
         ft_print: ft_print {
-            label = "ft_print";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -237,7 +221,6 @@ ft_a4: ft_a4 {
         };
         //WAREHOUSE QATTAN - FACT PRINT DIALOG
         print_wq: print_wq {
-            label = "print_wq";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings 
@@ -246,7 +229,6 @@ ft_a4: ft_a4 {
         };
         //WAREHOUSE FURNITURE - FACT PRINT DIALOG
          print_wf: print_wf {
-            label = "print_wf";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -255,7 +237,6 @@ ft_a4: ft_a4 {
         };
         //SHOP QATTAN - FACT PRINT DIALOG
          print_sq: print_sq {
-            label = "print_sq";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -264,7 +245,6 @@ ft_a4: ft_a4 {
         };
         //SHOP FURNITURE - FACT PRINT DIALOG
          print_sf: print_sf {
-            label = "print_sf";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
