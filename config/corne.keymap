@@ -331,17 +331,17 @@ ft_a4: ft_a4 {
         };
 
         gaming_colemak {
-// -----------------------------------------------------------------------------------------------------------------------------
-// |        |   Q    |   W    |     E     |     R     |     T     | # |     Y     |     U    |    I    |    O   |   P    |     |
-// | LAYERS | A/LGUI | S/LALT |  D/LCTRL  |  F/LSHFT  |     G     | # |     H     | J/LSHFT  | K/LCTRR | L/LALT | ;/LGUI |     |
-// |        |   Z    | X/RALT |     C     |     V     |     B     | # |     N     |     M    |    ,    | ./RALT |   /    |     |
-//                            | ESC/MEDIA | SPACE/NAV | TAB/MOUSE | # | ENTER/SYM | BSPC/NUM | DEL/FN  |
+// ----------------------------------------------------------------------------------------------------
+// |        |   Q   |   W   |   F   |   P   |   B   | # |   J   |   L   |   U   |   Y   |   '   |     |
+// | LAYERS |   A   |   R   |   S   |   T   |   G   | # |   M   |   N   |   E   |   I   |   O   |     |
+// |        |   Z   |   X   |   C   |   D   |   V   | # |   K   |   H   |   ,   |   .   |   /   |     |
+//                          |  ESC  | SPACE |  TAB  | # | ENTER | BSPC  |  DEL  |
 
             bindings = <
-&trans      &mt SPACE Q       &kp W       &kp E          &kp R          &lt LAYERS T         &kp Y          &kp U           &kp I          &kp O         &kp P          &trans
-&mo LAYERS  &mt LCTRL A  &mt LALT S  &mt LGUI D    &mt LSHFT F    &kp G                &kp H          &mt LSHFT J     &mt LGUI K    &mt LALT L    &mt LCTRL SEMI  &trans
-&trans      &kp Z       &mt RALT X  &kp C          &kp V          &kp B                &kp N          &lt MACRO M     &kp COMMA       &mt RALT DOT  &kp FSLH       &trans
-                                    &lt MEDIA ESC  &lt NAV SPACE  &lt MOUSE TAB        &lt SYM ENTER  &lt NUM BSPC    &lt FN DEL
+&trans      &kp Q  &kp W  &kp K    &kp S      &lt LAYERS F   &kp O      &kp I     &kp L     &kp SEMI  &kp R     &trans
+&mo LAYERS  &kp A  &kp D  &kp V    &kp E      &kp G          &kp M      &kp Y     &kp N     &kp U     &kp SQT   &trans
+&trans      &kp Z  &kp X  &kp C    &kp B      &kp T          &kp J      &kp H     &kp COMMA  &kp DOT   &kp FSLH  &trans
+                          &kp ESC  &kp SPACE  &kp TAB        &kp ENTER  &kp BSPC  &kp DEL
             >;
         };
 
